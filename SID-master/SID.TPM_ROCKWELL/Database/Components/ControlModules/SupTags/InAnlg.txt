@@ -1,0 +1,4 @@
+﻿"S","CM\InAnlg\@TAG","@TAG","F","M","*","F",,,,,,,,,,,,,82,"@TAG",0,
+"A","CM\InAnlg\@TAG_Area","Area No","F","M","*","F","D","L",0,100,1,1,0,0,,,,,,,0,
+"S","CM\InAnlg\@TAG_EU","@EU","F","M","*","F",,,,,,,,,,,,,82,"@EU",0,
+"S","CM\InAnlg\@TAG_TopicName","[@TOPICNAME]","F","M","*","F",,,,,,,,,,,,,82,"[@TOPICNAME]",0,

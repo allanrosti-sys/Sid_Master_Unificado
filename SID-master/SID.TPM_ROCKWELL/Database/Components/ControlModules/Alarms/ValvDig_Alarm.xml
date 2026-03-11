@@ -1,0 +1,30 @@
+﻿<FTAlarmElement name="@TAG" latched="false" ackRequired="true" style="Discrete">
+  <DiscreteElement>
+    <DataItem>/::[@TOPICNAME]@TAG.Out_GenAlmOn</DataItem>
+    <Style>DiscreteTrue</Style>
+    <Severity>@ALM_ID_03</Severity>
+    <DelayInterval>0</DelayInterval>
+    <EnableTag>false</EnableTag>
+    <UserData></UserData>
+    <RSVCmd></RSVCmd>
+    <AlarmClass>Valvula</AlarmClass>
+    <GroupID>@ALM_ID_01</GroupID>
+    <HandshakeTags>
+      <InAlarmDataItem>/::[@TOPICNAME]@TAG.Out_GenAlmOn</InAlarmDataItem>
+      <DisabledDataItem></DisabledDataItem>
+      <AckedDataItem>/::[@TOPICNAME]@TAG.In_AlmReset</AckedDataItem>
+      <SuppressedDataItem>/::[@TOPICNAME]@TAG.Out_AlmSupMode</SuppressedDataItem>
+      <ShelvedDataItem></ShelvedDataItem>
+    </HandshakeTags>
+    <RemoteAckAllDataItem AutoReset="false"></RemoteAckAllDataItem>
+    <RemoteDisableDataItem AutoReset="false"></RemoteDisableDataItem>
+    <RemoteEnableDataItem AutoReset="false"></RemoteEnableDataItem>
+    <RemoteSuppressDataItem AutoReset="false"></RemoteSuppressDataItem>
+    <RemoteUnSuppressDataItem AutoReset="false"></RemoteUnSuppressDataItem>
+    <RemoteShelveAllDataItem AutoReset="false"></RemoteShelveAllDataItem>
+    <RemoteUnShelveDataItem AutoReset="false"></RemoteUnShelveDataItem>
+    <RemoteShelveDuration></RemoteShelveDuration>
+    <MessageID>@ALM_ID_02</MessageID>
+    <Params></Params>
+  </DiscreteElement>
+</FTAlarmElement>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>SID_WEBAPI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="8.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <!-- Alvo de build para instalar e buildar o frontend do React -->
+  <Target Name="BuildReactApp" BeforeTargets="Build">
+    <!-- Verifica se o node está instalado -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js não está instalado. É necessário para buildar o frontend." />
+
+    <!-- Instala dependências do npm e builda o React app -->
+    <Message Importance="high" Text="Instalando dependências e buildando o frontend..." />
+    <Exec WorkingDirectory="../sid-react" Command="npm install" />
+    <Exec WorkingDirectory="../sid-react" Command="npm run build" />
+  </Target>
+
+</Project>

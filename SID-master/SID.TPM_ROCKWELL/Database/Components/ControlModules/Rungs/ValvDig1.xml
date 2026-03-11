@@ -1,0 +1,8 @@
+<Rung Use="Target" Number="0" Type="N">
+    <Comment>
+            <![CDATA[@TAG]]>
+    </Comment>
+    <Text>
+        <![CDATA[[AFI()OTE(@TAG.In_HwFltIO) ,_STD_CM_ValvDig1(@TAG,_STD_AH_GenAlmStat,_STD_CM_GenModeStat,@UICONFIG,@TAG.In_AlmReset,@TAG.In_MainActFbIO,@TAG.In_MainDeactFbIO,@TAG.In_HwFltIO,@TAG.Out_Main1IO,@TAG.Out_Main2IO) ,_STD_CM_ValvDig1_ExtPar(@TAG_ExtPar,@TAG.Out_Main1IO,@TAG.Out_Main2IO,@TAG.Out_MainAlmOn,@TAG.Cfg_Pos3) ];]]>
+    </Text>
+</Rung>

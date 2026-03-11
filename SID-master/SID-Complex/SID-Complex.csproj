@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A86970A-AE9E-47F6-B281-90D29B8B1107}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>SID_Complex</RootNamespace>
+    <AssemblyName>SID-Complex</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\SID-APP\bin\Debug\Plugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Designer\Pages\TableViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Control\Complex.cs" />
+    <Compile Include="Control\Event_UpdateValue.cs" />
+    <Compile Include="Control\Function.cs" />
+    <Compile Include="Control\MappingAttribute.cs" />
+    <Compile Include="Control\Model\tblCabinets.cs" />
+    <Compile Include="Control\Model\tblCmAnalogInputType.cs" />
+    <Compile Include="Control\Model\tblCmAnalogOutputType.cs" />
+    <Compile Include="Control\Model\tblCmMotor.cs" />
+    <Compile Include="Control\Model\tblCmMotorType.cs" />
+    <Compile Include="Control\Model\tblCmPID.cs" />
+    <Compile Include="Control\Model\tblCmTotalizer.cs" />
+    <Compile Include="Control\Model\tblCmTotalizerType.cs" />
+    <Compile Include="Control\Model\tblCmValve.cs" />
+    <Compile Include="Control\Model\tblCmValveType.cs" />
+    <Compile Include="Control\Model\tblCmVSD.cs" />
+    <Compile Include="Control\Model\tblCmVSDType.cs" />
+    <Compile Include="Control\Model\tblCmVSDVendor.cs" />
+    <Compile Include="Control\Model\tblControllers.cs" />
+    <Compile Include="Control\Model\tblControllerTypes.cs" />
+    <Compile Include="Control\Model\tblEngineeringUnits.cs" />
+    <Compile Include="Control\Model\tblEnumerationGroup.cs" />
+    <Compile Include="Control\Model\tblPhaseAlarmWarningInfos.cs" />
+    <Compile Include="Control\Model\tblPhaseAlarmWarningInfosText.cs" />
+    <Compile Include="Control\Model\tblPhaseClass.cs" />
+    <Compile Include="Control\Model\tblPhaseParameter.cs" />
+    <Compile Include="Control\Model\tblPhaseSoftkeys.cs" />
+    <Compile Include="Control\Table.cs" />
+    <Compile Include="Control\Model\tblAreas.cs" />
+    <Compile Include="Control\Model\tblCmAnalogInput.cs" />
+    <Compile Include="Control\Model\tblCmAnalogOutput.cs" />
+    <Compile Include="Control\Model\tblCmDigitalInput.cs" />
+    <Compile Include="Control\Model\tblCmDigitalOutput.cs" />
+    <Compile Include="Control\Tables\Table_tblCmAnalogInputType.cs" />
+    <Compile Include="Control\Tables\Table_tblCmAnalogOutputType.cs" />
+    <Compile Include="Control\Tables\Table_tblCmMotorType.cs" />
+    <Compile Include="Control\Tables\Table_tblCmPID.cs" />
+    <Compile Include="Control\Tables\Table_tblCmTotalizer.cs" />
+    <Compile Include="Control\Tables\Table_tblCmTotalizerType.cs" />
+    <Compile Include="Control\Tables\Table_tblCabinets.cs" />
+    <Compile Include="Control\Tables\Table_tblCmValve.cs" />
+    <Compile Include="Control\Tables\Table_tblCmValveType.cs" />
+    <Compile Include="Control\Tables\Table_tblCmVSD.cs" />
+    <Compile Include="Control\Tables\Table_tblCmVSDType.cs" />
+    <Compile Include="Control\Tables\Table_tblCmVSDVendor.cs" />
+    <Compile Include="Control\Tables\Table_tblControllers.cs" />
+    <Compile Include="Control\Tables\Table_tblControllerTypes.cs" />
+    <Compile Include="Control\Tables\Table_tblCmAnalogInput.cs" />
+    <Compile Include="Control\Tables\Table_tblCmAnalogOutput.cs" />
+    <Compile Include="Control\Tables\Table_tblAreas.cs" />
+    <Compile Include="Control\Tables\Table_tblCmMotor.cs" />
+    <Compile Include="Control\Tables\Table_tblCmDigitalOutput.cs" />
+    <Compile Include="Control\Tables\Table_tblCmDigitalInput.cs" />
+    <Compile Include="Control\Tables\Table_tblEngineeringUnits.cs" />
+    <Compile Include="Control\Tables\Table_tblEnumerationGroup.cs" />
+    <Compile Include="Control\Tables\Table_tblPhaseAlarmWarningInfos.cs" />
+    <Compile Include="Control\Tables\Table_tblPhaseAlarmWarningInfosText.cs" />
+    <Compile Include="Control\Tables\Table_tblPhaseClass.cs" />
+    <Compile Include="Control\Tables\Table_tblPhaseParameter.cs" />
+    <Compile Include="Control\Tables\Table_tblPhaseSoftkeys.cs" />
+    <Compile Include="Designer\Pages\TableViewer.xaml.cs">
+      <DependentUpon>TableViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\PopUp\win_EditReg.xaml.cs">
+      <DependentUpon>win_EditReg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_ForeignKey.xaml.cs">
+      <DependentUpon>usc_Field_ForeignKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_Boolean.xaml.cs">
+      <DependentUpon>usc_Field_Boolean.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_Real.xaml.cs">
+      <DependentUpon>usc_Field_Real.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_PrimaryKey.xaml.cs">
+      <DependentUpon>usc_Field_PrimaryKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_Text.xaml.cs">
+      <DependentUpon>usc_Field_Text.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ToolBox\usc_Field_Integer.xaml.cs">
+      <DependentUpon>usc_Field_Integer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Install.cs" />
+    <Page Include="Designer\PopUp\win_EditReg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_ForeignKey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_Boolean.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_Real.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_PrimaryKey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_Text.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Designer\ToolBox\usc_Field_Integer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Designer\Designer.csproj">
+      <Project>{7ff3dcfb-ad97-476b-baf2-99db42ea5baf}</Project>
+      <Name>Designer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin\Plugin.csproj">
+      <Project>{40bc30fb-3ffb-4456-aaf4-aa9576b56d3f}</Project>
+      <Name>Plugin</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Standard\Standard.csproj">
+      <Project>{55521f96-0e86-4661-891b-431228fd0a53}</Project>
+      <Name>Standard</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

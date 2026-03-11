@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" TargetType="Program" TargetCount="1" ContainsContext="true">
+  <Controller>
+    <DataTypes Use="Context">
+    </DataTypes>
+    <AddOnInstructionDefinitions Use="Context">
+    </AddOnInstructionDefinitions>
+    <Tags Use="Context">
+    </Tags>
+    <Programs Use="Context">
+    </Programs>
+  </Controller>
+</RSLogix5000Content>

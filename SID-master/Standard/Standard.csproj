@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55521F96-0E86-4661-891B-431228FD0A53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Standard</RootNamespace>
+    <AssemblyName>Standard</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\CollectionView.cs" />
+    <Compile Include="Control\Connection.cs" />
+    <Compile Include="Control\ControlModules.cs" />
+    <Compile Include="Control\Import.cs" />
+    <Compile Include="Control\Project.cs" />
+    <Compile Include="Models\XML\AdditionalHelpText.cs" />
+    <Compile Include="Models\XML\AddOnInstructionDefinitions .cs" />
+    <Compile Include="Models\XML\Controller.cs" />
+    <Compile Include="Models\XML\Data.cs" />
+    <Compile Include="Models\XML\DataTypes.cs" />
+    <Compile Include="Models\XML\Dependencies.cs" />
+    <Compile Include="Models\XML\Description.cs" />
+    <Compile Include="Models\XML\LocalTags.cs" />
+    <Compile Include="Models\XML\Members.cs" />
+    <Compile Include="Models\XML\Parameter.cs" />
+    <Compile Include="Models\XML\Parameters.cs" />
+    <Compile Include="Models\XML\Programs.cs" />
+    <Compile Include="Models\XML\RevisionNote.cs" />
+    <Compile Include="Models\XML\Routines.cs" />
+    <Compile Include="Models\XML\RSLogix5000Content.cs" />
+    <Compile Include="Models\XML\Tags.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\Base_RUNGS.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Rungs\ENET_PF753.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Rungs\MotDig1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Rungs\OutAnlg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Rungs\ValvDig1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\_STD_CM_MotDig1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\_STD_CM_MotDig1_ExtPar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\_STD_CM_OutAnlg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\_STD_CM_ValvDig1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\_STD_CM_ValvDig1_ExtPar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataBase\Components\ControlModules\Tags\Base_TAG.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

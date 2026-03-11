@@ -1,0 +1,30 @@
+﻿<FTAlarmElement name="V_200_05_11" latched="false" ackRequired="true" style="Discrete">
+  <DiscreteElement>
+    <DataItem>/::[Mistura]V_200_05_11.Out_GenAlmOn</DataItem>
+    <Style>DiscreteTrue</Style>
+    <Severity>501</Severity>
+    <DelayInterval>0</DelayInterval>
+    <EnableTag>false</EnableTag>
+    <UserData></UserData>
+    <RSVCmd></RSVCmd>
+    <AlarmClass>Valvula</AlarmClass>
+    <GroupID>81</GroupID>
+    <HandshakeTags>
+      <InAlarmDataItem>/::[Mistura]V_200_05_11.Out_GenAlmOn</InAlarmDataItem>
+      <DisabledDataItem></DisabledDataItem>
+      <AckedDataItem>/::[Mistura]V_200_05_11.In_AlmReset</AckedDataItem>
+      <SuppressedDataItem>/::[Mistura]V_200_05_11.Out_AlmSupMode</SuppressedDataItem>
+      <ShelvedDataItem></ShelvedDataItem>
+    </HandshakeTags>
+    <RemoteAckAllDataItem AutoReset="false"></RemoteAckAllDataItem>
+    <RemoteDisableDataItem AutoReset="false"></RemoteDisableDataItem>
+    <RemoteEnableDataItem AutoReset="false"></RemoteEnableDataItem>
+    <RemoteSuppressDataItem AutoReset="false"></RemoteSuppressDataItem>
+    <RemoteUnSuppressDataItem AutoReset="false"></RemoteUnSuppressDataItem>
+    <RemoteShelveAllDataItem AutoReset="false"></RemoteShelveAllDataItem>
+    <RemoteUnShelveDataItem AutoReset="false"></RemoteUnShelveDataItem>
+    <RemoteShelveDuration></RemoteShelveDuration>
+    <MessageID>1</MessageID>
+    <Params></Params>
+  </DiscreteElement>
+</FTAlarmElement>

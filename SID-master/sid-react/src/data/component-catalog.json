@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Exportar Tarefas do ClickUp para CSV",
+    "description": "Exporta tarefas de uma ou mais listas do ClickUp para um arquivo CSV, contendo o nome da tarefa e o tempo estimado.",
+    "category": "ClickUp",
+    "parameters": [
+      {
+        "name": "apiKey",
+        "type": "string",
+        "description": "Chave da API do ClickUp."
+      },
+      {
+        "name": "listIds",
+        "type": "string[]",
+        "description": "Lista de IDs das listas do ClickUp a serem exportadas."
+      },
+      {
+        "name": "outputFile",
+        "type": "string",
+        "description": "Caminho do arquivo CSV de saída."
+      }
+    ],
+    "example": "SID.ClickUp.Control.API api = new ClickUp.Control.API(\"pk_49109101_OHUDNFPPQ9WKNJU14ULMYVYX4OB8YGBD\");\n\nStreamWriter doc = new StreamWriter(\"teste.csv\");\n\nstring ListId = \"900700310566\";\nstring reqString = \"https://api.clickup.com/api/v2/list/\" + ListId + \"/task?order_by=due_date&reverse=1\";\nstring response = api.Get(reqString);\n\nControl.Model.Task_List task_List = JsonConvert.DeserializeObject<Control.Model.Task_List>(response);\n\nforeach (Control.Model.Task item in task_List.Tasks)\n{\n    doc.WriteLine($\"{item.name};{item.time_estimate/3600/1000}h\"); \n}",
+    "dependencies": []
+  },
+  {
+    "name": "TableViewer",
+    "description": "Um componente de UI para visualizar e editar os dados de uma tabela do SID-Complex.",
+    "category": "Complex - UI",
+    "parameters": [
+      {
+        "name": "table",
+        "type": "Table",
+        "description": "A instância da tabela a ser exibida."
+      }
+    ],
+    "example": "TableViewer tableViewer = new TableViewer(new Table_tblAreas());\nDesignerControl.SetViewer(tableViewer);",
+    "dependencies": []
+  },
+  {
+    "name": "Tabela de Áreas",
+    "description": "Componente que representa a tabela de áreas do projeto. Permite visualizar e gerenciar as áreas cadastradas.",
+    "category": "Complex - Classificações",
+    "parameters": [],
+    "example": "Table_tblAreas areasTable = new Table_tblAreas();\nareasTable.Complex = complex; // Instância de Ctrl_Complex\n// Agora você pode usar os métodos da tabela para acessar os dados.",
+    "dependencies": ["Ctrl_Complex"]
+  },
+  {
+    "name": "Ctrl_Complex",
+    "description": "O controlador principal para o plugin SID-Complex. Gerencia a conexão com o banco de dados e as operações de 'Magic'.",
+    "category": "Complex - Core",
+    "parameters": [
+      {
+        "name": "Connection",
+        "type": "object",
+        "description": "A conexão com o banco de dados a ser utilizada."
+      }
+    ],
+    "example": "Ctrl_Complex complex = new Ctrl_Complex();\ncomplex.Connection = Project.Connections[0];\ncomplex.Magic();",
+    "dependencies": []
+  },
+  {
+    "name": "Configuração de Conexão MS SQL",
+    "description": "Configura e salva uma conexão com um banco de dados MS SQL Server. As informações de conexão são salvas localmente.",
+    "category": "Database",
+    "parameters": [
+      {
+        "name": "dataSource",
+        "type": "string",
+        "description": "Endereço do servidor de banco de dados."
+      },
+      {
+        "name": "database",
+        "type": "string",
+        "description": "Nome do banco de dados."
+      },
+      {
+        "name": "user",
+        "type": "string",
+        "description": "Nome do usuário para autenticação."
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "description": "Senha para autenticação."
+      }
+    ],
+    "example": "Designer.PopUp.Win_Connection win_Conection = new Designer.PopUp.Win_Connection();\nwin_Conection.ShowDialog();",
+    "dependencies": []
+  },
+  {
+    "name": "Importar Projeto Rockwell (.L5X)",
+    "description": "Importa um projeto Rockwell a partir de um arquivo .L5X. Os dados do projeto são extraídos e armazenados para uso posterior.",
+    "category": "Rockwell",
+    "parameters": [
+      {
+        "name": "l5xFile",
+        "type": "string",
+        "description": "Caminho para o arquivo .L5X do projeto Rockwell."
+      }
+    ],
+    "example": "Import.Execute(databasePath, l5xFilePath);",
+    "dependencies": []
+  }
+]

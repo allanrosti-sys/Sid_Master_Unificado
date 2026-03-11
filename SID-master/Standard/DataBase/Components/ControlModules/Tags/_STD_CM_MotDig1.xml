@@ -1,0 +1,52 @@
+<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_MotDig1" Constant="false" ExternalAccess="Read/Write">
+    <Description>
+        <![CDATA[@TAG]]>
+    </Description>
+    <Data Format="Decorated">
+        <Structure DataType="_STD_CM_MotDig1">
+              <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+              <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+              <DataValueMember Name="Cfg_ResetIn" DataType="BOOL" Value="1"/>
+              <DataValueMember Name="Cfg_DenyNonAutoModes" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Cfg_AllocIntlk" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Cfg_DisableControlDec" DataType="BOOL" Value="1"/>
+              <DataValueMember Name="Cfg_ReducedPar" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Cfg_DenyOnOffDel" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="UI_Config" DataType="DINT" Radix="Decimal" Value="32896"/>
+              <DataValueMember Name="Par_DelToStart" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="Par_DelToStop" DataType="DINT" Radix="Decimal" Value="2"/>
+              <DataValueMember Name="Par_FwdStaticAlmDel" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="Par_FwdStartAlmDel" DataType="DINT" Radix="Decimal" Value="10"/>
+              <DataValueMember Name="Par_FwdStopAlmDel" DataType="DINT" Radix="Decimal" Value="10"/>
+              <DataValueMember Name="Par_StepReset" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="Par_StepSet" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="In_AlmReset" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_SimMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_AlmSupMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_ManMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_RunMan" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_Run" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_FwdFbIO" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_HwFltIO" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_Alloc" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="In_IdAlloc" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="In_IdCM" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="In_StepNPhase" DataType="DINT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="Out_Run" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_RunAut" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_FwdIO" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_FwdFb" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_GenAlmOn" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_GenUnack" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_GenAck" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_FwdAlmOn" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_HwAlmOn" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_SimMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_AlmSupMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_ManMode" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="Out_Alloc" DataType="BOOL" Value="0"/>
+              <DataValueMember Name="UI_Control" DataType="INT" Radix="Decimal" Value="0"/>
+              <DataValueMember Name="UI_Stat" DataType="DINT" Radix="Decimal" Value="0"/>
+        </Structure>
+    </Data>
+</Tag>

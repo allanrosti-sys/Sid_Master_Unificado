@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SID.Designer.Layout.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SID.Designer.Layout"
+             mc:Ignorable="d" 
+             d:DesignHeight="35" d:DesignWidth="1920">
+    <Grid>
+        <DockPanel LastChildFill="True" Margin="0,0,0,0">
+            <Border Background="Gray" Height="5" DockPanel.Dock="Bottom"></Border>
+            <Border Background="White">
+                <Menu Height="30" VerticalAlignment="Top" FontSize="12" FontFamily="Arial">
+                    <MenuItem Header="Arquivo" Height="30" >
+                        <MenuItem Header="Novo" Height="30" Click="NewProject_Click"></MenuItem>
+                        <MenuItem Header="Abrir" Height="30" Click="OpenProject_Click"></MenuItem>
+                        <MenuItem Header="Fechar" Height="30" Click="MenuItem_Click"></MenuItem>
+                        <MenuItem Header="Sair" Height="30" Click="MenuItem_Click_1"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Editar" Height="30"></MenuItem>
+                    <MenuItem Header="Exibir" Height="30"></MenuItem>
+                    <MenuItem Header="Projeto" Height="30"></MenuItem>
+                    <MenuItem x:Name="menu_extensoes" Header="Extensões" Height="30" Click="Extensoes_Click"></MenuItem>
+                    <MenuItem x:Name="menu_Connection" Header="Conexões" Height="30"></MenuItem>
+                    <MenuItem Header="Ferramentas" Height="30"></MenuItem>
+                    <MenuItem Header="Ajuda" Height="30">
+                        <MenuItem Header="Sobre" ToolTip="Deus Ajuda quem cedo madruga">
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </Border>
+        </DockPanel>
+    </Grid>
+</UserControl>

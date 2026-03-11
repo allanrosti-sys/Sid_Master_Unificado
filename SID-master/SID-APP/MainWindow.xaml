@@ -1,0 +1,38 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SID_APP"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Layout="clr-namespace:SID.Designer.Layout;assembly=Designer" 
+        x:Class="SID_APP.MainWindow"
+        mc:Ignorable="d"
+        Title="SID" Height="1000" Width="1920"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="0,95,0,0" Width="152"/>
+        <DockPanel LastChildFill="True" Margin="0,0,0,0">
+            <Border  Height="35" DockPanel.Dock="Top" Background="LightSkyBlue">
+                <Layout:Header x:Name="Header" UpdateProject="Header1_UpdateProject"/>
+            </Border>
+            <Border  Height="30" DockPanel.Dock="Bottom" Background="Black"/>
+            <!--<Border  Width="200" DockPanel.Dock="Right" Background="LightGoldenrodYellow">
+                <Layout:tool_base/>
+            </Border>-->
+            <Border  Width="300" DockPanel.Dock="Left" Background="PaleVioletRed">
+                <Layout:Manager Name="Manager"/>
+            </Border>
+            <Border  Background="LightGray" Padding="5,0,5,5">
+                <Layout:Main x:Name="Main"/>
+            </Border>
+
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿<Window x:Class="SID_APP.PopUp.Project.New"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SID_APP.PopUp.Project"
+        mc:Ignorable="d"
+        Title="Novo Projeto" Height="370.869" Width="300.423" WindowStyle="ToolWindow">
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel >
+                <Label Content="Nome:"></Label>
+                <TextBox x:Name="tb_Name"></TextBox>
+            </StackPanel>
+            <StackPanel Height="20"></StackPanel>
+            <StackPanel >
+                <Label Content="Descrição:"></Label>
+                <TextBox x:Name="tb_Description" TextWrapping="Wrap"  MinLines="4"/>
+            </StackPanel>
+            <StackPanel Height="20"></StackPanel>
+            <StackPanel>
+                <Label Content="Local:"></Label>
+                <TextBox x:Name="tb_Path" TextWrapping="NoWrap" IsReadOnly="True" ToolTip="Clique duplo para escolher o arquivo!" MouseDoubleClick="PathFile_Click"/>
+            </StackPanel>
+            <StackPanel Height="50"></StackPanel>
+            <StackPanel VerticalAlignment="Bottom">
+                <Button Content="Salvar" Click="SaveFile_Click"></Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

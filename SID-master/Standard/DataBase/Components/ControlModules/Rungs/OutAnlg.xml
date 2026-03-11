@@ -1,0 +1,10 @@
+<Rung Use="Target" Number="0" Type="N">
+    <Comment>
+        <LocalizedComment Lang="pt-BR">
+            <![CDATA[@TAG]]>
+        </LocalizedComment>
+    </Comment>
+    <Text>
+      <![CDATA[[AFI() OTE(@TAG.In_HwFltIO) ,_STD_CM_OutAnlg(@TAG,_STD_AH_GenAlmStat,_STD_CM_GenModeStat,32768,@TAG.In_AlmReset,@TAG.In_HwFltIO,@TAG.Out_ValueIO) ];]]>
+    </Text>
+</Rung>

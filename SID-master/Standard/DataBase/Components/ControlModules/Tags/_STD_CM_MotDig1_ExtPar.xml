@@ -1,0 +1,19 @@
+<Tag Name="@TAG_ExtPar" TagType="Base" DataType="_STD_CM_MotDig1_ExtPar" Constant="false" ExternalAccess="Read/Write">
+    <Description>
+        <![CDATA[@TAG]]>
+    </Description>
+    <Data Format="L5K">
+        <![CDATA[[3,0,0,0,[277431,3600000,3491100]]]]>
+    </Data>
+    <Data Format="Decorated">
+        <Structure DataType="_STD_CM_MotDig1_ExtPar">
+            <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+            <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+            <DataValueMember Name="FwdFbIO" DataType="BOOL" Value="0"/>
+            <DataValueMember Name="FwdAlmOn" DataType="BOOL" Value="0"/>
+            <DataValueMember Name="OperTim" DataType="DINT" Radix="Decimal" Value="0"/>
+            <DataValueMember Name="FwdOperCnt" DataType="DINT" Radix="Decimal" Value="0"/>
+            <DataValueMember Name="FwdFltCnt" DataType="DINT" Radix="Decimal" Value="0"/>
+        </Structure>
+    </Data>
+</Tag>

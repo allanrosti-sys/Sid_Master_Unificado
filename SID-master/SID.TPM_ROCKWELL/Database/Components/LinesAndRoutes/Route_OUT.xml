@@ -1,0 +1,253 @@
+﻿<Program Use="Target" Name="@Route_Name" TestEdits="false" MainRoutineName="Main" Disabled="false">
+  <Tags>
+    <Tag Name="CM_ManifoldValve" TagType="Alias" AliasFor="@Valv" ExternalAccess="Read/Write">
+      <Description>
+        <![CDATA[Manifold valve]]>
+      </Description>
+    </Tag>
+    <Tag Name="ConnOut_Coord" TagType="Base" DataType="_STD_PC_Conn_Coord" Constant="false" ExternalAccess="Read/Write">
+    </Tag>
+    <Tag Name="Phase_XferOut" TagType="Base" DataType="_TMP_PH_Phase_Xfer" Constant="false" ExternalAccess="Read/Write">
+    </Tag>
+    <Tag Name="ProdUnit_BusData" TagType="Alias" AliasFor="@ProdUnit_Unit_Coord.Dest" ExternalAccess="Read/Write">
+      <Description>
+        <![CDATA[@ProdUnit_Unit_Coord]]>
+      </Description>
+    </Tag>
+    <Tag Name="TankUnit_BusData" TagType="Alias" AliasFor="@TankUnit_Unit_Coord.Fill" ExternalAccess="Read/Write">
+      <Description>
+        <![CDATA[Tank unit bus data]]>
+      </Description>
+    </Tag>
+    <Tag Name="_STD_PC_BusConn_In" TagType="Base" DataType="_STD_PC_BusConn_In" Constant="false" ExternalAccess="Read/Write">
+    </Tag>
+    <Tag Name="_STD_PC_BusConn_Out" TagType="Base" DataType="_STD_PC_BusConn_Out" Constant="false" ExternalAccess="Read/Write">
+    </Tag>
+    <Tag Name="_USR_PH_Phase_XferOut" TagType="Base" DataType="_USR_PH_Phase_XferOut" Constant="false" ExternalAccess="Read/Write">
+    </Tag>
+  </Tags>
+  <Routines>
+    <Routine Name="ConnOut_Act" Type="RLL">
+      <RLLContent>
+        <Rung Number="0" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Activations ***
+
+Line valve]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[XIC(Phase_XferOut.Ctrl.Running)XIC(ProdUnit_BusData.Ctrl.Prog.ProgStat.MaterialOut)XIC(TankUnit_BusData.Ctrl.Prog.ProgStat.MaterialRequest)OTL(CM_ManifoldValve.In_Main);]]>
+          </Text>
+        </Rung>
+      </RLLContent>
+    </Routine>
+    <Routine Name="ConnOut_Alm" Type="RLL">
+      <RLLContent>
+        <Rung Number="0" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Alarms ***]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[NOP();]]>
+          </Text>
+        </Rung>
+      </RLLContent>
+    </Routine>
+    <Routine Name="ConnOut_Coord" Type="RLL">
+      <RLLContent>
+        <Rung Number="0" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Tetra PlantMaster template library
+
+Function: General connection coordination structure
+Version: 6.1.00_01
+
+Created by: Niklas Einarsson
+Modified by: Niklas Einarsson
+Last updated date: 2008-03-31
+
+Inputs:
+Connection status and commands
+Bus interface line and tank
+
+Outputs:
+Updated connection status
+Updated bus interfacecs
+Control module commands
+
+Note:
+---
+
+Unit sections:
+Allocation
+Bus coordination input
+User interlocks
+User running faults
+Execution of internal functions
+Alarm summary
+Bus coordination output]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[NOP();]]>
+          </Text>
+        </Rung>
+        <Rung Number="1" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Allocation ***
+
+]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_STD_UN_Alloc(ConnOut_Coord.Alloc,0);]]>
+          </Text>
+        </Rung>
+        <Rung Number="2" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Bus coordination ***
+
+Input]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_STD_PC_BusConn_In(_STD_PC_BusConn_In,ProdUnit_BusData,TankUnit_BusData,ConnOut_Coord,Phase_XferOut);]]>
+          </Text>
+        </Rung>
+        <Rung Number="3" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** User interlocks ***
+
+Initialize Interlock conditions]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_STD_PH_IntlkInit(Phase_XferOut.Cond.IntlkInit,Phase_XferOut.Ctrl.Interlock);]]>
+          </Text>
+        </Rung>
+        <Rung Number="4" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Incorrect Material ID
+]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[AFI()_STD_PH_Intlk(Phase_XferOut.Cond.Intlk[3],3,Phase_XferOut.Cond.IntlkInit,Phase_XferOut.Ctrl.Interlock,_TMP_PH_CondTexts.IncorrectMaterialID,1,Phase_XferOut.Ctrl.Oper);]]>
+          </Text>
+        </Rung>
+        <Rung Number="5" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Manual activation/deactivation]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[XIC(CM_ManifoldValve.Out_ManMode)_STD_PH_Intlk(Phase_XferOut.Cond.Intlk[4],4,Phase_XferOut.Cond.IntlkInit,Phase_XferOut.Ctrl.Interlock,_TMP_PH_CondTexts.ManualActivationDeactivation,1,Phase_XferOut.Ctrl.Oper);]]>
+          </Text>
+        </Rung>
+        <Rung Number="6" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** User running faults ***
+
+Initialize RunningFault conditions]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_STD_PH_RunFltInit(Phase_XferOut.Cond.RunFltInit,Phase_XferOut.Ctrl.RunningFault);]]>
+          </Text>
+        </Rung>
+        <Rung Number="7" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Valve fault]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[XIC(CM_ManifoldValve.Out_GenAlmOn)_STD_PH_RunFlt(Phase_XferOut.Cond.RunFlt[1],1,Phase_XferOut.Cond.RunFltInit,Phase_XferOut.Ctrl.RunningFault,Phase_XferOut.ParCategory.EventInfoCauseID,_TMP_PH_CondTexts.ValveFault,0,Phase_XferOut.Ctrl.Reset);]]>
+          </Text>
+        </Rung>
+        <Rung Number="8" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Execution of internal functions ***
+
+Alarms]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[JSR(ConnOut_Alm,0);]]>
+          </Text>
+        </Rung>
+        <Rung Number="9" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Transfer]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_USR_PH_Phase_XferOut(_USR_PH_Phase_XferOut,Phase_XferOut,ProdUnit_BusData,TankUnit_BusData,ConnOut_Coord,_STD_EL_DBBufferArea,_STD_EL_LogBuffer,_TMP_PH_CondTexts,_TMP_PH_CmdCtrlIDs,_TMP_GF_MaterialSeparationRulesConfig,0,0);]]>
+          </Text>
+        </Rung>
+        <Rung Number="10" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[Activations]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[JSR(ConnOut_Act,0);]]>
+          </Text>
+        </Rung>
+        <Rung Number="11" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Alarm summary ***]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[XIC(CM_ManifoldValve.Out_GenAlmOn)OTE(ConnOut_Coord.SumAlarm);]]>
+          </Text>
+        </Rung>
+        <Rung Number="12" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[*** Bus coordination ***
+
+Output]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[_STD_PC_BusConn_Out(_STD_PC_BusConn_Out,ProdUnit_BusData,TankUnit_BusData,ConnOut_Coord,Phase_XferOut);]]>
+          </Text>
+        </Rung>
+      </RLLContent>
+    </Routine>
+    <Routine Name="Main" Type="RLL">
+      <RLLContent>
+        <Rung Number="0" Type="N">
+          <Comment>
+            <LocalizedComment Lang="pt-BR">
+              <![CDATA[The Main routine is used to execute the Coordinator only.
+All other routines in the program are executed by the Coordinator.
+The reason for that is to allow the user to copy all routines from one program to another
+without the need to reconfigure the Main routine in each program. ]]>
+            </LocalizedComment>
+          </Comment>
+          <Text>
+            <![CDATA[JSR(ConnOut_Coord,0);]]>
+          </Text>
+        </Rung>
+      </RLLContent>
+    </Routine>
+  </Routines>
+</Program>

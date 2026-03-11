@@ -1,0 +1,17 @@
+.vscode/
+
+# Node / Frontend
+**/node_modules/
+**/dist/
+
+# .NET build outputs
+**/bin/
+**/obj/
+
+# SID Web API runtime artifacts
+SID-master/SID-WEBAPI/wwwroot/
+SID-master/SID-WEBAPI/App_Data/portal_settings.json
+
+# Logs / temp
+**/*.log
+**/*.tmp

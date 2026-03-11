@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Projeto Base",
+    "description": "Um projeto base que inclui os componentes essenciais para iniciar um novo projeto de automação.",
+    "components": [
+      "Tabela de Áreas",
+      "Configuração de Conexão MS SQL"
+    ]
+  }
+]

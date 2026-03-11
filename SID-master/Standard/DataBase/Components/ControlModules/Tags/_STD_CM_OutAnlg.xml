@@ -1,0 +1,49 @@
+<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_OutAnlg" Constant="false" ExternalAccess="Read/Write">
+    <Description>
+        <![CDATA[@TAG]]>
+    </Description>
+  <Data Format="L5K">
+    <![CDATA[[1,0,0.00000000e+000,1.00000000e+002,0.00000000e+000,6.00000000e+003,0.00000000e+000,0.00000000e+000
+					,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0.00000000e+000,0,0.00000000e+000,0.00000000e+000
+					,[1,0,0,[0,0,0]],0.00000000e+000,[1,0,0,[0,0,0]],0.00000000e+000,0.00000000e+000,[1,0,0,[0,0,0]],[1,0,0,[0,0,0]],[1,0,0,[0,0,0]]]]]>
+  </Data>
+  <Data Format="Decorated">
+      <Structure DataType="_STD_CM_OutAnlg">
+        <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+        <DataValueMember Name="EnableOut" DataType="BOOL" Value="1"/>
+        <DataValueMember Name="Cfg_Limit" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Cfg_DenyNonAutoModes" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Cfg_AllocIntlk" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Cfg_DisableControlDec" DataType="BOOL" Value="1"/>
+        <DataValueMember Name="UI_Config" DataType="DINT" Radix="Decimal" Value="32768"/>
+        <DataValueMember Name="Par_MinEU" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="Par_MaxEU" DataType="REAL" Radix="Float" Value="100.0"/>
+        <DataValueMember Name="Par_MinRaw" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="Par_MaxRaw" DataType="REAL" Radix="Float" Value="7000.0"/>
+        <DataValueMember Name="In_AlmReset" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="In_AlmSupMode" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="In_ManMode" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="In_ValueEUMan" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="In_ValueEU" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="In_HwFltIO" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="In_Alloc" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_GenAlmOn" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_GenUnack" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_GenAck" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_HwAlmOn" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_RangeAlmOn" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_EUParCfgAlmOn" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_AlmSupMode" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_ManMode" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_Alloc" DataType="BOOL" Value="0"/>
+        <DataValueMember Name="Out_ValueEUAut" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="Out_ValueEU" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="Out_ValueIO" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="UI_Control" DataType="INT" Radix="Decimal" Value="0"/>
+        <DataValueMember Name="UI_CtrlValueEUMan" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="UI_Stat" DataType="DINT" Radix="Decimal" Value="0"/>
+        <DataValueMember Name="UI_StatValueEU" DataType="REAL" Radix="Float" Value="0.0"/>
+        <DataValueMember Name="UI_StatValueEUAut" DataType="REAL" Radix="Float" Value="0.0"/>
+      </Structure>
+    </Data>
+</Tag>

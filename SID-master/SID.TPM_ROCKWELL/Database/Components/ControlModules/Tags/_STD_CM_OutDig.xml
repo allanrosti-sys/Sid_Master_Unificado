@@ -1,0 +1,8 @@
+﻿<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_OutDig" Constant="false" ExternalAccess="Read/Write">
+  <Description>
+      <![CDATA[@TAG]]>
+  </Description>
+  <Data Format="L5K">
+    <![CDATA[[0,0,0,0,0,0,0,0,0,[0,0,0,[0,0,0]],[0,0,0,[0,0,0]]]]]>
+  </Data>
+</Tag>

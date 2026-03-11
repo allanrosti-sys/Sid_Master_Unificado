@@ -1,0 +1,8 @@
+<Rung Use="Target" Number="0" Type="N">
+    <Comment>
+            <![CDATA[@TAG]]>
+    </Comment>
+    <Text>
+      <![CDATA[_USR_ENET_PF753(@TAG,@Inv:I,@Inv:O,@MOT.In_FwdFbIO,@MOT.In_HwFltIO,@MOT.Out_FwdIO,@TAG.EStop,@SC.Out_ValueIO,@MOT.In_AlmReset,Dummy_DigIn,0);]]>
+    </Text>
+</Rung>

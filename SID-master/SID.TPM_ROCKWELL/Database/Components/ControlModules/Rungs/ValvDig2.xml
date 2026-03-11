@@ -1,0 +1,10 @@
+﻿<Rung Use="Target" Number="0" Type="N">
+  <Comment>
+    <LocalizedComment Lang="pt-BR">
+      <![CDATA[@TAG]]>
+    </LocalizedComment>
+  </Comment>
+  <Text>
+    <![CDATA[[AFI() OTE(@TAG.In_HwFltIO) ,_STD_CM_ValvDig2(@TAG,_STD_AH_GenAlmStat,_STD_CM_GenModeStat,33183,@TAG.In_AlmReset,@TAG.In_MainActFbIO,@TAG.In_MainDeactFbIO,@TAG.In_UppSActFbIO,@TAG.In_LowSActFbIO,@TAG.In_HwFltIO,@TAG.Out_MainIO,@TAG.Out_UppSIO,@TAG.Out_LowSIO) ,_STD_CM_ValvDig2_ExtPar(@TAG_ExtPar,@TAG.Out_MainIO,@TAG.Out_UppSIO,@TAG.Out_LowSIO,@TAG.Out_MainAlmOn,@TAG.Out_UppSAlmOn,@TAG.Out_LowSAlmOn) ];]]>
+  </Text>
+</Rung>

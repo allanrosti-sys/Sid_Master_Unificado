@@ -1,0 +1,5 @@
+﻿<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_InAnlg" Constant="false" ExternalAccess="Read/Write">
+  <Description>
+    <![CDATA[@TAG]]>
+  </Description>
+</Tag>

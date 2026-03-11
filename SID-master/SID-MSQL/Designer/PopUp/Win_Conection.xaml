@@ -1,0 +1,23 @@
+﻿<Window x:Class="SID.MSQL.Designer.PopUp.Win_Connection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SID.MSQL.Designer.PopUp"
+        mc:Ignorable="d"
+        Title="Conexao com o banco" Height="250.741" Width="393.856" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Data Source:" HorizontalAlignment="Left" Margin="32,25,0,0" VerticalAlignment="Top" Height="26" />
+        <Label Content="DataBase:" HorizontalAlignment="Left" Margin="47,56,0,0" VerticalAlignment="Top" Height="26" />
+        <Label Content="User:" HorizontalAlignment="Left" Margin="73,87,0,0" VerticalAlignment="Top" Height="26" />
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="47,118,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="tb_DataSource" HorizontalAlignment="Left" Height="23" Margin="114,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
+        <TextBox x:Name="tb_Database" HorizontalAlignment="Left" Height="23" Margin="114,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
+        <TextBox x:Name="tb_User" HorizontalAlignment="Left" Height="23" Margin="114,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
+        <PasswordBox x:Name="tb_Password" HorizontalAlignment="Left" Margin="114,118,0,0" VerticalAlignment="Top" Width="243" Height="26"/>
+        <Button x:Name="btn_Test"  Content="Teste" Click="Btn_Test_Click" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="91" Height="39"/>
+        <Button x:Name="btn_Cancel" Content="Cancelar" Click="Btn_Cancel_Click" HorizontalAlignment="Left" Margin="285,171,0,0" VerticalAlignment="Top" Width="91" Height="39"/>
+        <Button x:Name="btn_Save" Content="Salvar" Click="Btn_Save_Click" HorizontalAlignment="Left" Margin="149,171,0,0" VerticalAlignment="Top" Width="91" Height="39"/>
+
+    </Grid>
+</Window>

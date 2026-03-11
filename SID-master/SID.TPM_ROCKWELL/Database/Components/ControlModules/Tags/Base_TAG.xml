@@ -1,0 +1,5 @@
+<Tag Name="@TAG" TagType="Base" DataType="@DataType" Constant="false" ExternalAccess="Read/Write">
+  <Description>
+    <![CDATA[@TAG]]>
+  </Description>
+</Tag>

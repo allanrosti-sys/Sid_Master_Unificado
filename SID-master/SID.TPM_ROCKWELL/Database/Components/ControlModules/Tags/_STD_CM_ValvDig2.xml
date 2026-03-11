@@ -1,0 +1,8 @@
+﻿<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_ValvDig2" Constant="false" ExternalAccess="Read/Write">
+  <Description>
+    <![CDATA[@TAG]]>
+  </Description>
+  <Data Format="L5K">
+    <![CDATA[[1,0,@PAR_01,@PAR_02,@PAR_03,@PAR_04,@PAR_05,@PAR_06,@PAR_07,@PAR_08,@PAR_09,@PAR_10,@PAR_11,0,0,0,0,0,0,0,0,[0,0,0],[0,0,0,[0,0,0]],[0,0,0],[0,0,0,[0,0,0]],0,[0,0,0],[0,0,0,[0,0,0]],[0,0,0,[0,0,0]],[0,0,0],[0,0,0],[0,0,0,[0,0,0]]]]]>
+  </Data>
+</Tag>

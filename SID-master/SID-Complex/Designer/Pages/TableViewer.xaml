@@ -1,0 +1,22 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SID.Complex.Designer.Pages"
+             xmlns:Layout="clr-namespace:SID.Designer.Layout;assembly=Designer" x:Class="SID.Complex.Designer.Pages.usc_TableViewer"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <DockPanel LastChildFill="True" Background="DarkGray">
+            <StackPanel DockPanel.Dock="Right" Width="150">
+                <Label Content="Menu" HorizontalAlignment="Center" Margin="0,0,0,10" ></Label>
+                <Button x:Name="btn_New" Height="30" Content = "Novo" Background="Black" Foreground="White" Click="Btn_New_Click"/>
+                <Button x:Name="btn_Edit" Height="30" Content = "Editar" Background="Black" Foreground="White" Click="Btn_Edit_Click"></Button>
+                <Button x:Name="btn_Duplicate" Height="30" Content = "Duplicar" Background="Black" Foreground="White" Click="Btn_Duplicate_Click"/>
+                <Button x:Name="btn_Delete" Height="30" Content = "Deletar" Background="Black" Foreground="White" Click="Btn_Delete_Click" />
+            </StackPanel>
+            <DataGrid x:Name="datagrid" ColumnWidth="*" ItemsSource="{Binding}" SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" AutoGenerateColumns="True" IsReadOnly="True"  SelectionChanged="Datagrid_SelectionChanged"  SelectionUnit="FullRow"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

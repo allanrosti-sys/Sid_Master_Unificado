@@ -1,0 +1,68 @@
+<Tag Name="@TAG" TagType="Base" DataType="_STD_CM_ValvDig1" Constant="false" ExternalAccess="Read/Write">
+  <Description>
+    <![CDATA[@TAG]]>
+  </Description>
+  <!--<Data Format="L5K">
+    <![CDATA[[1,0,@PAR_01,@PAR_02,@PAR_03,@PAR_04,@PAR_05,@PAR_06,@PAR_07,0,0,0,0,0,0,0,0,[0,0,0],[1,0,0,[0,0,0]],[1,0,0,[0,0,0]],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[1,0,0,[0,0,0]]]]]>
+  </Data>-->
+  <Data Format="Decorated">
+    <Structure DataType="_STD_CM_ValvDig1">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1"/>
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_Main1" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_Main2" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_MainActFb" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_MainDeactFb" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_ResetIn" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_Pos3" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_AirClosed" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_DenyNonAutoModes" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_AllocIntlk" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_DisableControlDec" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_ReducedPar" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Cfg_DenyOnOffDel" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="UI_Config" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_Main1DelToAct" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_Main1DelToDeact" DataType="DINT" Radix="Decimal" Value="2"/>
+      <DataValueMember Name="Par_Main2DelToAct" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_Main2DelToDeact" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_MainStaticAlmDel" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_MainActAlmDel" DataType="DINT" Radix="Decimal" Value="10"/>
+      <DataValueMember Name="Par_MainDeactAlmDel" DataType="DINT" Radix="Decimal" Value="10"/>
+      <DataValueMember Name="Par_StepReset" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Par_StepSet" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="In_AlmReset" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_SimMode" DataType="BOOL" Value="1"/>
+      <DataValueMember Name="In_AlmSupMode" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_ManMode" DataType="BOOL" Value="1"/>
+      <DataValueMember Name="In_Main1Man" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_Main2Man" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_Main1" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_Main2" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_MainActFbIO" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_MainDeactFbIO" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_HwFltIO" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_Alloc" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="In_IdAlloc" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="In_IdCM" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="In_StepNPhase" DataType="DINT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="Out_Main1IO" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_Main2IO" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_Main1Aut" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_Main2Aut" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_MainActFb" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_MainDeactFb" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_GenAlmOn" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_GenUnack" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_GenAck" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_MainAlmOn" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_HwAlmOn" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_SimMode" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_AlmSupMode" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_ManMode" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="Out_Alloc" DataType="BOOL" Value="0"/>
+      <DataValueMember Name="UI_Control" DataType="INT" Radix="Decimal" Value="0"/>
+      <DataValueMember Name="UI_Stat" DataType="DINT" Radix="Decimal" Value="0"/>
+    </Structure>
+  </Data>
+</Tag>

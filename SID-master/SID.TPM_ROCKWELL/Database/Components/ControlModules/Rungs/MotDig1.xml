@@ -1,0 +1,8 @@
+<Rung Use="Target" Number="0" Type="N">
+	<Comment>
+		<![CDATA[@TAG]]>
+	</Comment>
+	<Text>
+		<![CDATA[[AFI()OTE(@TAG.In_HwFltIO) ,_STD_CM_MotDig1(@TAG,_STD_AH_GenAlmStat,_STD_CM_GenModeStat,@UICONFIG,@TAG.In_AlmReset,@TAG.In_FwdFbIO,@TAG.In_HwFltIO,@TAG.Out_FwdIO) ,_STD_CM_MotDig1_ExtPar(@TAG_ExtPar,@TAG.Out_FwdIO,@TAG.Out_FwdAlmOn) ];]]>
+	</Text>
+</Rung>
