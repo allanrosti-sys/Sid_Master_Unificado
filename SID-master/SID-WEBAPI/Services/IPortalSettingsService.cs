@@ -10,7 +10,7 @@ public interface IPortalSettingsService
 
 public sealed class PortalSettings
 {
-    // URLs do ecossistema Puchta. SÃ£o configuradas pelo usuÃ¡rio no portal do SID.
+    // URLs do ecossistema Puchta. São configuradas pelo usuário no portal do SID.
     [JsonPropertyName("puchtaPanelUrl")]
     public string PuchtaPanelUrl { get; set; } = "http://localhost:8099";
 

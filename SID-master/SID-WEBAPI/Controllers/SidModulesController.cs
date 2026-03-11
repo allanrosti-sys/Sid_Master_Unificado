@@ -10,16 +10,16 @@ public class SidModulesController : ControllerBase
     [HttpGet("modules")]
     public IActionResult GetModules()
     {
-        // MVP: inventÃ¡rio inicial dos mÃ³dulos do SID-master para a UI do portal.
-        // A ideia aqui Ã© permitir navegaÃ§Ã£o e diagnÃ³stico, mesmo antes da migraÃ§Ã£o completa.
+        // MVP: inventário inicial dos módulos do SID-master para a UI do portal.
+        // A ideia aqui é permitir navegação e diagnóstico, mesmo antes da migração completa.
         var modules = new List<SidModuleInfo>
         {
             new()
             {
                 Id = "sid-clickup",
                 Name = "SID ClickUp",
-                Description = "IntegraÃ§Ã£o para exportaÃ§Ã£o/importaÃ§Ã£o de tarefas do ClickUp.",
-                Status = "MVP (DiagnÃ³stico)",
+                Description = "Integração para exportação/importação de tarefas do ClickUp.",
+                Status = "MVP (Diagnóstico)",
                 Icon = "ClipboardList",
                 HasAction = true,
                 ActionEndpoint = "/api/sid/clickup/status"
@@ -28,7 +28,7 @@ public class SidModulesController : ControllerBase
             {
                 Id = "sid-complex",
                 Name = "SID Complex",
-                Description = "Gerenciamento de tabelas e lÃ³gica complexa de engenharia.",
+                Description = "Gerenciamento de tabelas e lógica complexa de engenharia.",
                 Status = "MVP (Mock)",
                 Icon = "Puzzle",
                 HasAction = true,
@@ -49,7 +49,7 @@ public class SidModulesController : ControllerBase
                 Id = "sid-rockwell",
                 Name = "SID TPM Rockwell",
                 Description = "Ferramentas para processamento de arquivos .L5X e .L5K.",
-                Status = "MVP (DiagnÃ³stico)",
+                Status = "MVP (Diagnóstico)",
                 Icon = "Factory",
                 HasAction = true,
                 ActionEndpoint = "/api/sid/rockwell/status"
@@ -74,8 +74,8 @@ public class SidModulesController : ControllerBase
     {
         return Ok(new
         {
-            status = "NÃ£o configurado",
-            message = "No MVP, a integraÃ§Ã£o estÃ¡ em modo diagnÃ³stico. Configure a chave quando a tela de credenciais estiver pronta."
+            status = "Não configurado",
+            message = "No MVP, a integração está em modo diagnóstico. Configure a chave quando a tela de credenciais estiver pronta."
         });
     }
 
@@ -92,14 +92,14 @@ public class SidModulesController : ControllerBase
     [HttpGet("db/validate")]
     public IActionResult ValidateDb()
     {
-        // MVP: validaÃ§Ã£o simulada, apenas para exercitar UI/fluxo.
-        return Ok(new { status = "OK", message = "String de conexÃ£o vÃ¡lida (simulaÃ§Ã£o)." });
+        // MVP: validação simulada, apenas para exercitar UI/fluxo.
+        return Ok(new { status = "OK", message = "String de conexão válida (simulação)." });
     }
 
     [HttpGet("complex/entities")]
     public IActionResult GetComplexEntities()
     {
-        // MVP: dados simulados para exercitar tabelas/visualizaÃ§Ã£o.
+        // MVP: dados simulados para exercitar tabelas/visualização.
         var entities = new[]
         {
             new { name = "tblAreas", rows = 15, lastUpdate = DateTime.UtcNow.AddDays(-1) },

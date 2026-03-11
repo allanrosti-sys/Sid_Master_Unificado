@@ -18,7 +18,7 @@ namespace SID_WEBAPI.Controllers
 
             if (!System.IO.File.Exists(filePath))
             {
-                return NotFound("CatÃ¡logo de componentes nÃ£o encontrado.");
+                return NotFound("Catálogo de componentes não encontrado.");
             }
 
             var json = await System.IO.File.ReadAllTextAsync(filePath);

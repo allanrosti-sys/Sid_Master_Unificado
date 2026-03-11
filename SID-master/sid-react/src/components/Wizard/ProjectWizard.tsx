@@ -26,7 +26,7 @@ const ProjectWizard: React.FC = () => {
     };
     
     // Em um produto final, isso seria enviado para a API do backend.
-    // No MVP, registramos no console e avanÃ§amos para uma tela de sucesso.
+    // No MVP, registramos no console e avançamos para uma tela de sucesso.
     console.log('Generated project:', project);
     setStep(step + 1);
   };

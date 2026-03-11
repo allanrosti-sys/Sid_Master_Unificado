@@ -13,7 +13,7 @@ public sealed class PortalSettingsService : IPortalSettingsService
 
     public PortalSettingsService(IWebHostEnvironment env)
     {
-        // Armazena as configuraÃ§Ãµes em uma pasta local do backend (sem depender do frontend).
+        // Armazena as configurações em uma pasta local do backend (sem depender do frontend).
         var dataDir = Path.Combine(env.ContentRootPath, "App_Data");
         Directory.CreateDirectory(dataDir);
         _settingsFilePath = Path.Combine(dataDir, "portal_settings.json");
@@ -38,7 +38,7 @@ public sealed class PortalSettingsService : IPortalSettingsService
             }
             catch
             {
-                // Se o arquivo estiver corrompido, voltamos ao padrÃ£o para nÃ£o travar a UI.
+                // Se o arquivo estiver corrompido, voltamos ao padrão para não travar a UI.
                 var defaults = new PortalSettings();
                 Persist(defaults);
                 return defaults;
@@ -62,7 +62,7 @@ public sealed class PortalSettingsService : IPortalSettingsService
 
     private static PortalSettings Normalize(PortalSettings settings)
     {
-        // Normaliza entradas do usuÃ¡rio para evitar problemas de URL.
+        // Normaliza entradas do usuário para evitar problemas de URL.
         settings.PuchtaPanelUrl = (settings.PuchtaPanelUrl ?? string.Empty).Trim();
         settings.PuchtaBackendUrl = (settings.PuchtaBackendUrl ?? string.Empty).Trim();
         settings.PuchtaFrontendUrl = (settings.PuchtaFrontendUrl ?? string.Empty).Trim();
