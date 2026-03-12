@@ -116,13 +116,19 @@ function Resolve-ExportPath {
     param([string]$BasePath, [string]$FallbackPath)
 
     $candidates = New-Object System.Collections.Generic.List[string]
-    if (-not [string]::IsNullOrWhiteSpace($BasePath)) {
+    $hasBasePath = -not [string]::IsNullOrWhiteSpace($BasePath)
+
+    if ($hasBasePath) {
         $candidates.Add((Join-Path $BasePath "Logs\\ControlModules_Export"))
         $candidates.Add((Join-Path $BasePath "ControlModules_Export"))
         # Permite usar a pasta diretamente quando o usuario apontar ja para ControlModules_Export.
         $candidates.Add($BasePath)
     }
-    $candidates.Add($FallbackPath)
+
+    # So usa fallback global quando nao existe projeto selecionado.
+    if (-not $hasBasePath) {
+        $candidates.Add($FallbackPath)
+    }
 
     # Funcao interna para contar apenas XMLs de blocos validos (OB, FB, FC).
     function Get-BlockXmlCount([string]$candidatePath) {
@@ -565,8 +571,33 @@ while ($listener.IsListening) {
                 (Join-Path $scriptRoot "DocumentacaoDoProjeto.html")
             )
             $docPath = $docCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+            $expectedSiemensPath = $null
+            if (-not [string]::IsNullOrWhiteSpace($selectedTiaPath)) {
+                $expectedSiemensPath = Resolve-ExportPath -BasePath $selectedTiaPath -FallbackPath $exportRoot
+            }
+
+            if ($docPath -and $expectedSiemensPath -and (Test-Path $expectedSiemensPath)) {
+                $docContent = [System.IO.File]::ReadAllText($docPath, [System.Text.Encoding]::UTF8)
+                if ($docContent -notmatch [regex]::Escape($expectedSiemensPath)) {
+                    $generatorPath = Join-Path $projectRoot "Generate-Documentation.ps1"
+                    if (Test-Path $generatorPath) {
+                        try {
+                            powershell -ExecutionPolicy Bypass -File $generatorPath -InputPath $expectedSiemensPath | Out-Null
+                            $docPath = $docCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+                        } catch {
+                            Write-Warning "Falha ao regenerar DocumentacaoDoProjeto.html: $($_.Exception.Message)"
+                        }
+                    }
+                }
+            }
+
             if ($docPath) {
                 $content = [System.IO.File]::ReadAllText($docPath, [System.Text.Encoding]::UTF8)
+                if ($expectedSiemensPath -and ($content -notmatch [regex]::Escape($expectedSiemensPath))) {
+                    $content = "<h1>Documentacao desatualizada para o projeto atual.</h1><p>Defina o caminho atual em /api/project-path e gere novamente a documentacao.</p>"
+                    $statusCode = 409
+                }
             } else {
                 $content = "<h1>Documentacao Siemens ainda nao gerada.</h1><p>Use o botao 4 para gerar.</p>"
                 $statusCode = 404
@@ -578,8 +609,36 @@ while ($listener.IsListening) {
                 (Join-Path $scriptRoot "DocumentacaoRockwell.html")
             )
             $docPath = $docCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+            $expectedRockwellPath = $null
+            if (-not [string]::IsNullOrWhiteSpace($selectedTiaPath)) {
+                $resolvedRockwell = Resolve-RockwellSource -BasePath $selectedTiaPath
+                if ($resolvedRockwell -and $resolvedRockwell.status -eq "success") {
+                    $expectedRockwellPath = $resolvedRockwell.path
+                }
+            }
+
+            if ($docPath -and $expectedRockwellPath -and (Test-Path $expectedRockwellPath)) {
+                $docContent = [System.IO.File]::ReadAllText($docPath, [System.Text.Encoding]::UTF8)
+                if ($docContent -notmatch [regex]::Escape($expectedRockwellPath)) {
+                    $generatorPath = Join-Path $projectRoot "Generate-Documentation-Rockwell.ps1"
+                    if (Test-Path $generatorPath) {
+                        try {
+                            powershell -ExecutionPolicy Bypass -File $generatorPath -InputPath $selectedTiaPath | Out-Null
+                            $docPath = $docCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+                        } catch {
+                            Write-Warning "Falha ao regenerar DocumentacaoRockwell.html: $($_.Exception.Message)"
+                        }
+                    }
+                }
+            }
+
             if ($docPath) {
                 $content = [System.IO.File]::ReadAllText($docPath, [System.Text.Encoding]::UTF8)
+                if ($expectedRockwellPath -and ($content -notmatch [regex]::Escape($expectedRockwellPath))) {
+                    $content = "<h1>Documentacao Rockwell desatualizada para o projeto atual.</h1><p>Defina o caminho atual em /api/project-path e gere novamente a documentacao.</p>"
+                    $statusCode = 409
+                }
             } else {
                 $content = "<h1>Documentacao Rockwell ainda nao gerada.</h1><p>Use o botao 4 para gerar.</p>"
                 $statusCode = 404

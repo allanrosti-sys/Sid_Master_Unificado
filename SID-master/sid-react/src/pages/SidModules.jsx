@@ -1,13 +1,63 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { sidApi } from "../services/api";
 
-const ICONS = {
-  ClipboardList: "[CLIP]",
-  Puzzle: "[MOD]",
-  Database: "[DB]",
-  Factory: "[PLC]",
-  FileText: "[DOC]",
-};
+function ModuleIcon({ type }) {
+  const base = "h-10 w-10 rounded-lg border flex items-center justify-center";
+  if (type === "ClipboardList") {
+    return (
+      <div className={`${base} bg-blue-50 border-blue-200 text-blue-700`}>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="7" y="4" width="10" height="16" rx="2" />
+          <path d="M9 4h6v3H9z" />
+          <path d="M9 11h6M9 15h4" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === "Puzzle") {
+    return (
+      <div className={`${base} bg-violet-50 border-violet-200 text-violet-700`}>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M8 3h4a2 2 0 1 1 4 0h3v5a2 2 0 1 1 0 4v5h-5a2 2 0 1 1-4 0H5v-5a2 2 0 1 1 0-4V3h3z" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === "Database") {
+    return (
+      <div className={`${base} bg-emerald-50 border-emerald-200 text-emerald-700`}>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+          <ellipse cx="12" cy="6" rx="7" ry="3" />
+          <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
+          <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === "Factory") {
+    return (
+      <div className={`${base} bg-amber-50 border-amber-200 text-amber-700`}>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M3 20V8h6v4l4-3v3l4-3v11H3z" />
+          <path d="M8 20V5h8v5" />
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${base} bg-slate-50 border-slate-200 text-slate-700`}>
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M6 3h9l3 3v15H6z" />
+        <path d="M15 3v3h3" />
+        <path d="M9 12h6M9 16h6" />
+      </svg>
+    </div>
+  );
+}
 
 function statusBadge(status) {
   const normalized = (status || "").toLowerCase();
@@ -79,7 +129,7 @@ export default function SidModules() {
         {modules.map((moduleItem) => (
           <div key={moduleItem.id} className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col">
             <div className="flex items-start justify-between mb-4">
-              <div className="text-sm font-mono text-slate-500">{ICONS[moduleItem.icon] || "[MOD]"}</div>
+              <ModuleIcon type={moduleItem.icon} />
               <span className={`px-2 py-1 text-xs font-semibold rounded-full ${statusBadge(moduleItem.status)}`}>
                 {moduleItem.status}
               </span>
