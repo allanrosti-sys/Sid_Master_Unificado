@@ -12,19 +12,19 @@ const allowedActions = [
     id: "export-attach",
     name: "Exportar XML (Attach)",
     script: "RunExporterWithAttach.ps1",
-    desc: "Exporta blocos via TIA Openness usando instância aberta.",
+    desc: "Exporta blocos via TIA Openness usando instancia aberta.",
   },
   {
     id: "doc-siemens",
-    name: "Gerar Documentação (Siemens)",
+    name: "Gerar Documentacao (Siemens)",
     script: "Generate-Documentation.ps1",
-    desc: "Gera documentação HTML a partir da origem Siemens.",
+    desc: "Gera documentacao HTML a partir da origem Siemens.",
   },
   {
     id: "doc-rockwell",
-    name: "Gerar Documentação (Rockwell)",
+    name: "Gerar Documentacao (Rockwell)",
     script: "Generate-Documentation-Rockwell.ps1",
-    desc: "Gera documentação HTML a partir de arquivo L5X/L5K.",
+    desc: "Gera documentacao HTML a partir de arquivo L5X/L5K.",
   },
   {
     id: "full-cycle",
@@ -36,7 +36,7 @@ const allowedActions = [
     id: "import-blocks",
     name: "Importar Blocos",
     script: "Import-New-Blocks.ps1",
-    desc: "Importa blocos de volta ao projeto (quando aplicável).",
+    desc: "Importa blocos de volta ao projeto (quando aplicavel).",
   },
 ];
 
@@ -47,24 +47,24 @@ export default function PuchtaActions() {
   const sortedLogs = useMemo(() => logs.slice(0, 200), [logs]);
 
   const addLog = (text, type = "default") => {
-    setLogs((prev) => [{ time: new Date().toLocaleTimeString(), text, type }, ...prev]);
+    setLogs((previous) => [{ time: new Date().toLocaleTimeString(), text, type }, ...previous]);
   };
 
   const executeAction = async (action) => {
     setExecuting(true);
-    addLog(`Iniciando ação: ${action.name}...`, "info");
+    addLog(`Iniciando acao: ${action.name}...`, "info");
 
     try {
-      const res = await sidApi.proxy("puchta_panel", "/api/run", "POST", { script: action.script });
-      if (res.status >= 200 && res.status < 300) {
+      const response = await sidApi.proxy("puchta_panel", "/api/run", "POST", { script: action.script });
+      if (response.status >= 200 && response.status < 300) {
         addLog("Comando enviado com sucesso.", "success");
-        addLog(JSON.stringify(res.data, null, 2), "default");
+        addLog(JSON.stringify(response.data, null, 2), "default");
       } else {
-        addLog(`Erro ao executar: HTTP ${res.status}`, "error");
-        addLog(JSON.stringify(res.data, null, 2), "error");
+        addLog(`Erro ao executar: HTTP ${response.status}`, "error");
+        addLog(JSON.stringify(response.data, null, 2), "error");
       }
     } catch (error) {
-      addLog(`Falha na comunicação: ${error.message}`, "error");
+      addLog(`Falha na comunicacao: ${error.message}`, "error");
     } finally {
       setExecuting(false);
     }
@@ -74,10 +74,8 @@ export default function PuchtaActions() {
     <div className="space-y-6 max-w-6xl mx-auto">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Ações do Puchta Insight</h1>
-          <p className="text-slate-500">
-            Dispare automações remotamente no painel do Puchta (via proxy do SID, sem CORS).
-          </p>
+          <h1 className="text-2xl font-bold text-slate-800">Acoes do Puchta Insight</h1>
+          <p className="text-slate-500">Dispare automacoes no painel do Puchta via proxy do SID.</p>
         </div>
         <button onClick={() => setLogs([])} className="text-sm text-slate-400 hover:text-slate-600">
           Limpar logs
@@ -108,11 +106,11 @@ export default function PuchtaActions() {
         </div>
 
         <div className="bg-slate-900 rounded-lg p-4 h-[420px] overflow-auto font-mono text-sm shadow-inner">
-          <div className="text-slate-400 mb-2 border-b border-slate-700 pb-1">Console de saída</div>
+          <div className="text-slate-400 mb-2 border-b border-slate-700 pb-1">Console de saida</div>
           {sortedLogs.length === 0 && <div className="text-slate-600 italic">Aguardando comandos...</div>}
-          {sortedLogs.map((log, i) => (
+          {sortedLogs.map((log, index) => (
             <div
-              key={i}
+              key={index}
               className={`mb-1 ${
                 log.type === "error"
                   ? "text-red-400"
@@ -132,4 +130,3 @@ export default function PuchtaActions() {
     </div>
   );
 }
-

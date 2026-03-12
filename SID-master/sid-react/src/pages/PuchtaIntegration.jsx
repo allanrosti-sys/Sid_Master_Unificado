@@ -10,11 +10,13 @@ export default function PuchtaIntegration() {
 
     async function load() {
       try {
-        const conf = await sidApi.get("/portal/settings");
+        const config = await sidApi.get("/portal/settings");
         if (cancelled) return;
-        if (conf?.puchtaPanelUrl) setPanelUrl(conf.puchtaPanelUrl);
-      } catch (err) {
-        console.error(err);
+        if (config?.puchtaPanelUrl) {
+          setPanelUrl(config.puchtaPanelUrl);
+        }
+      } catch (error) {
+        console.error(error);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -26,8 +28,9 @@ export default function PuchtaIntegration() {
     };
   }, []);
 
-  // Mantém o painel 100% original: sem botões/skin do portal.
-  if (loading) return <div className="p-8 text-center text-slate-500">Carregando painel do Puchta Insight...</div>;
+  if (loading) {
+    return <div className="p-8 text-center text-slate-500">Carregando painel do Puchta Insight...</div>;
+  }
 
   return (
     <div className="-m-6 h-[calc(100vh-4rem)] bg-white">

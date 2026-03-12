@@ -22,12 +22,11 @@ export default function Settings() {
     puchtaFrontendUrl: "",
   });
   const [loading, setLoading] = useState(true);
-  const [msg, setMsg] = useState(null);
+  const [message, setMessage] = useState(null);
   const [testResult, setTestResult] = useState(null);
 
   useEffect(() => {
     loadSettings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadSettings = async () => {
@@ -36,62 +35,63 @@ export default function Settings() {
       setConfig(data);
     } catch (error) {
       console.error(error);
-      setMsg({ type: "error", text: "Falha ao carregar configurações." });
+      setMessage({ type: "error", text: "Falha ao carregar configuracoes." });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSave = async (e) => {
-    e.preventDefault();
-    setMsg(null);
+  const handleSave = async (event) => {
+    event.preventDefault();
+    setMessage(null);
     setTestResult(null);
+
     try {
-      // Backend aceita PUT e POST (compatibilidade).
       await sidApi.put("/portal/settings", config);
-      setMsg({ type: "success", text: "Configurações salvas com sucesso!" });
+      setMessage({ type: "success", text: "Configuracoes salvas com sucesso." });
     } catch (error) {
-      setMsg({ type: "error", text: "Erro ao salvar configurações." });
+      console.error(error);
+      setMessage({ type: "error", text: "Erro ao salvar configuracoes." });
     }
   };
 
-  const handleChange = (e) => {
-    setConfig({ ...config, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setConfig({ ...config, [event.target.name]: event.target.value });
   };
 
   const testPanel = async () => {
     setTestResult(null);
     try {
-      const res = await sidApi.proxy("puchta_panel", "/api/version");
-      setTestResult({ ok: res.status === 200, data: res.data });
-    } catch (e) {
-      setTestResult({ ok: false, data: e.message });
+      const result = await sidApi.proxy("puchta_panel", "/api/version");
+      setTestResult({ ok: result.status === 200, data: result.data });
+    } catch (error) {
+      setTestResult({ ok: false, data: error.message });
     }
   };
 
-  if (loading) return <div className="p-8 text-center text-slate-500">Carregando configurações...</div>;
+  if (loading) {
+    return <div className="p-8 text-center text-slate-500">Carregando configuracoes...</div>;
+  }
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-        <h2 className="text-2xl font-bold text-slate-800 mb-2">Configurações do Portal</h2>
-        <p className="text-sm text-slate-500">
-          Configure o Puchta Insight para habilitar as chamadas via proxy no SID Web.
-        </p>
+        <h2 className="text-2xl font-bold text-slate-800 mb-2">Configuracoes do Portal</h2>
+        <p className="text-sm text-slate-500">Configure o Puchta Insight para habilitar chamadas via proxy no SID Web.</p>
 
-        {msg && (
+        {message && (
           <div
             className={`p-4 mt-6 rounded-md ${
-              msg.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
+              message.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
             }`}
           >
-            {msg.text}
+            {message.text}
           </div>
         )}
 
         <form onSubmit={handleSave} className="space-y-6 mt-6">
           <div className="space-y-4">
-            <h3 className="font-semibold text-slate-700 border-b pb-2">Integração Puchta Insight</h3>
+            <h3 className="font-semibold text-slate-700 border-b pb-2">Integracao Puchta Insight</h3>
             <InputField
               label="URL do Painel (Logs/WebServer)"
               name="puchtaPanelUrl"
@@ -127,18 +127,14 @@ export default function Settings() {
               type="submit"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition"
             >
-              Salvar alterações
+              Salvar alteracoes
             </button>
           </div>
         </form>
       </div>
 
       {testResult ? (
-        <div
-          className={`bg-white p-6 rounded-xl shadow-sm border ${
-            testResult.ok ? "border-green-200" : "border-red-200"
-          }`}
-        >
+        <div className={`bg-white p-6 rounded-xl shadow-sm border ${testResult.ok ? "border-green-200" : "border-red-200"}`}>
           <div className="font-bold text-slate-800 mb-2">Resultado do teste</div>
           <pre className="text-xs font-mono overflow-auto">{JSON.stringify(testResult.data, null, 2)}</pre>
         </div>
@@ -146,4 +142,3 @@ export default function Settings() {
     </div>
   );
 }
-

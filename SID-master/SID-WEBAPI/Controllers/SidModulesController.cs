@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using SID_WEBAPI.Models;
 
 namespace SID_WEBAPI.Controllers;
 
@@ -10,31 +9,31 @@ public class SidModulesController : ControllerBase
     [HttpGet("modules")]
     public IActionResult GetModules()
     {
-        // MVP: inventário inicial dos módulos do SID-master para a UI do portal.
-        // A ideia aqui é permitir navegação e diagnóstico, mesmo antes da migração completa.
-        var modules = new List<SidModuleInfo>
+        // MVP: inventario inicial dos modulos do SID-master para a UI do portal.
+        // A ideia e permitir navegacao e diagnostico, mesmo antes da migracao completa.
+        var modules = new List<object>
         {
-            new()
+            new
             {
                 Id = "sid-clickup",
                 Name = "SID ClickUp",
-                Description = "Integração para exportação/importação de tarefas do ClickUp.",
-                Status = "MVP (Diagnóstico)",
+                Description = "Integracao para exportacao/importacao de tarefas do ClickUp.",
+                Status = "MVP (Diagnostico)",
                 Icon = "ClipboardList",
                 HasAction = true,
                 ActionEndpoint = "/api/sid/clickup/status"
             },
-            new()
+            new
             {
                 Id = "sid-complex",
                 Name = "SID Complex",
-                Description = "Gerenciamento de tabelas e lógica complexa de engenharia.",
+                Description = "Gerenciamento de tabelas e logica complexa de engenharia.",
                 Status = "MVP (Mock)",
                 Icon = "Puzzle",
                 HasAction = true,
                 ActionEndpoint = "/api/sid/complex/entities"
             },
-            new()
+            new
             {
                 Id = "sid-msql",
                 Name = "SID MSQL",
@@ -44,17 +43,17 @@ public class SidModulesController : ControllerBase
                 HasAction = true,
                 ActionEndpoint = "/api/sid/db/validate"
             },
-            new()
+            new
             {
                 Id = "sid-rockwell",
                 Name = "SID TPM Rockwell",
                 Description = "Ferramentas para processamento de arquivos .L5X e .L5K.",
-                Status = "MVP (Diagnóstico)",
+                Status = "MVP (Diagnostico)",
                 Icon = "Factory",
                 HasAction = true,
                 ActionEndpoint = "/api/sid/rockwell/status"
             },
-            new()
+            new
             {
                 Id = "sid-pgtemplate",
                 Name = "SID PGTemplate",
@@ -62,7 +61,7 @@ public class SidModulesController : ControllerBase
                 Status = "Planejado",
                 Icon = "FileText",
                 HasAction = false,
-                ActionEndpoint = null
+                ActionEndpoint = (string?)null
             }
         };
 
@@ -74,8 +73,8 @@ public class SidModulesController : ControllerBase
     {
         return Ok(new
         {
-            status = "Não configurado",
-            message = "No MVP, a integração está em modo diagnóstico. Configure a chave quando a tela de credenciais estiver pronta."
+            status = "Nao configurado",
+            message = "No MVP, a integracao esta em modo diagnostico. Configure a chave quando a tela de credenciais estiver pronta."
         });
     }
 
@@ -92,14 +91,14 @@ public class SidModulesController : ControllerBase
     [HttpGet("db/validate")]
     public IActionResult ValidateDb()
     {
-        // MVP: validação simulada, apenas para exercitar UI/fluxo.
-        return Ok(new { status = "OK", message = "String de conexão válida (simulação)." });
+        // MVP: validacao simulada, apenas para exercitar UI/fluxo.
+        return Ok(new { status = "OK", message = "String de conexao valida (simulacao)." });
     }
 
     [HttpGet("complex/entities")]
     public IActionResult GetComplexEntities()
     {
-        // MVP: dados simulados para exercitar tabelas/visualização.
+        // MVP: dados simulados para exercitar tabelas/visualizacao.
         var entities = new[]
         {
             new { name = "tblAreas", rows = 15, lastUpdate = DateTime.UtcNow.AddDays(-1) },
@@ -109,4 +108,3 @@ public class SidModulesController : ControllerBase
         return Ok(entities);
     }
 }
-
